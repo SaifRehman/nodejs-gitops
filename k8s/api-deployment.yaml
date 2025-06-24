@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nodejs-api
+  name: nodejs-api
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: nodejs-api
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: nodejs-api
+    spec:
+      containers:
+      - image: quay.io/rh-ee-srehman/nodejs:latest
+        imagePullPolicy: Always
+        name: nodejs-api
+        ports:
+        - containerPort: 3000
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
