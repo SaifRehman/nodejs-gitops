@@ -3,6 +3,6 @@ kind: Kustomization
 resources:
 - ../../k8s/
 images:
-- digest: sha256:7fe288d7868a657bc671a64687ebbad6d802a394fade12aabee520ab8afb79db
+- digest: sha256:5db8b22e647fe642e2caba34410146457051fe1dde6fcaed5160f6de3616ae1f
   name: quay.io/rh-ee-srehman/nodejs
   newName: quay.io/rh-ee-srehman/nodejs
