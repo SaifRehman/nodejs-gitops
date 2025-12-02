@@ -5,7 +5,7 @@ metadata:
     app: nodejs-api
   name: nodejs-api
 spec:
-  replicas: 5
+  replicas: 2
   selector:
     matchLabels:
       app: nodejs-api
